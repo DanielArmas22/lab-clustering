@@ -53,6 +53,12 @@ plt.scatter(X_jitter[:, 0], X_jitter[:, 1], c=labels, s=20, edgecolor='white', l
 # Dibujar los centroides
 plt.scatter(centroids[:, 0], centroids[:, 1], s=200, marker='X', c='red', edgecolor='black', label='Centroides')
 
+# Añadir etiquetas a cada cluster
+for i, centroid in enumerate(centroids):
+    plt.text(centroid[0], centroid[1] + 2, f'Cluster {i}', fontsize=12, 
+             fontweight='bold', color='black', ha='center',
+             bbox=dict(facecolor='white', alpha=0.6, edgecolor='black', boxstyle='round,pad=0.3'))
+
 plt.title(f'Visualización de Clusters por Regiones - Nuevo Dataset (N=1000)\nSegmentación por Puntajes de Lectura vs Escritura (K={n_clusters})')
 plt.xlabel('Puntaje de Lectura')
 plt.ylabel('Puntaje de Escritura')
